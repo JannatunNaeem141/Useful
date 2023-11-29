@@ -33,3 +33,31 @@ We used to copy to clipboard by clicking the copy button. It increases the user 
     }, 2000);
   };
 ```
+
+### In Return :
+```jsx
+  return (
+    <div className='flex'>
+        <div className="flex items-center bg-blue-50 p-2 rounded-lg">
+            <p className="mr-2">{link}</p>
+            <input
+                type="text"
+                ref={inputRef}
+                value={link}
+                className="opacity-0 w-0 h-0"
+                readOnly
+            />
+            <button
+                onClick={handleCopyLink}
+                className="p-2 rounded-md bg-gray-300 hover:bg-gray-400"
+            >
+                {copied ? (
+                <AiOutlineCheck className="text-green-500" />
+                ) : (
+                <MdContentCopy className="text-gray-600" />
+                )}
+            </button>
+        </div>
+    </div>
+  )
+```
