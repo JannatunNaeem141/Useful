@@ -2,7 +2,7 @@
 We used to copy to clipboard by clicking the copy button. It increases the user experience. This is how we can make this easily…
 
 ## Technologies
-- ReactJS
+- ReactJS/NextJS
 - TailwindCSS
 - React Icons
 
