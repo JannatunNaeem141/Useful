@@ -42,8 +42,8 @@ And the solution idea is, If I fixed the api route for a specific domain, that c
   app.use(cors());
   
   const allowedOrigins = [
-    "http://telementoring.net",
-    "https://telementoring.net",
+    "http://xyz.net",
+    "https://abc.net",
     "http://localhost:3000",
     // Add more allowed origins here
   ];
