@@ -6,6 +6,34 @@ But the problem is, when anybody browses this api-link (“http://localhost:5000
 
 And the solution idea is, If I fixed the api route for a specific domain, that can be a solution. There can be two verity One is for one domain and another is for multiple domains.
 
+## Technologies:
+- ReactJS/NextJS
+- ExpressJS
+
+## Single Domain
+```jsx
+  const checkReferer = (req, res, next) => {
+    const referer = req.get("Referer");
+    if (!referer || !referer.toLowerCase().includes(`http://localhost:3000`)) {
+      return res.status(403).json({ message: "Access forbidden" });
+    }
+    next();
+  };
+```
+
+#### Use the checkReferer like that:
+```jsx
+  // Get blogs
+  app.get("/blogs", checkReferer, (req, res) => {
+    db.query("SELECT * FROM blogs", (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+```
 
 
 
