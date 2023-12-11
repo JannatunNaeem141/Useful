@@ -35,6 +35,30 @@ And the solution idea is, If I fixed the api route for a specific domain, that c
   });
 ```
 
-
-
+## Multiple Domain
+#### This will use the “cors”. (Recommended to use this method)
+```jsx
+  const cors = require("cors");
+  app.use(cors());
+  
+  const allowedOrigins = [
+    "http://telementoring.net",
+    "https://telementoring.net",
+    "http://localhost:3000",
+    // Add more allowed origins here
+  ];
+  
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback('Access Denied');
+      }
+    }
+  };
+  
+  app.use(cors(corsOptions));
+```
+#### ( “This method will not need to use in any api” )
 
