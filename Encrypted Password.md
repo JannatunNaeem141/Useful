@@ -12,7 +12,7 @@
 
 ## Function
 ```jsx
-  const onSubmit = data => {
-    const hashedPassword = sha256(data.password).toString();
-  }
+    const password = '123456';
+    const hashedPassword = sha256(password).toString();
+    console.log(hashedPassword);
 ```
