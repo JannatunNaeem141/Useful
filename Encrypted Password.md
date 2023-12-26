@@ -1,16 +1,16 @@
-# Encrypted Password
+## Encrypted Password
 
-## Install Package
+### Install Package
 ```jsx
   npm install crypto-js
 ```
 
-## Import
+### Import
 ```jsx
   import sha256 from 'crypto-js/sha256';
 ```
 
-## Function
+### Console like:
 ```jsx
     const password = '123456';
     const hashedPassword = sha256(password).toString();
