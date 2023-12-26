@@ -2,6 +2,22 @@
 
 ## Install Package
 ```jsx
-npm install crypto-js
+  npm install crypto-js
 ```
 
+## Import
+```jsx
+  import sha256 from 'crypto-js/sha256';
+```
+
+## Function
+```jsx
+  const onSubmit = data => {
+    const hashedPassword = sha256(data.password).toString();
+  
+  
+    Axios.post(`${BaseUrl}/addUser`, {
+        password: hashedPassword,
+    })
+  }
+```
