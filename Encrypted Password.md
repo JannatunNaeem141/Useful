@@ -14,10 +14,5 @@
 ```jsx
   const onSubmit = data => {
     const hashedPassword = sha256(data.password).toString();
-  
-  
-    Axios.post(`${BaseUrl}/addUser`, {
-        password: hashedPassword,
-    })
   }
 ```
