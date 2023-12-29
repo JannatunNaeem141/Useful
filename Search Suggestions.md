@@ -55,4 +55,30 @@
     'Orange',
   ];
 
+  // Function to handle input change
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    // If the input is empty, show all suggestions
+    if (value.trim() === '') {
+      setSuggestions(predefinedSuggestions);
+      setIsOpen(true); // Open the dropdown when the input is focused
+    } else {
+      // Filter suggestions based on user input
+      const filteredSuggestions = predefinedSuggestions.filter((suggestion) =>
+        suggestion.toLowerCase().includes(value.toLowerCase())
+      );
+
+      setSuggestions(filteredSuggestions);
+      setIsOpen(true); // Open the dropdown when there are suggestions
+    }
+  };
+
+  // Function to handle suggestion click
+  const handleSuggestionClick = (suggestion) => {
+    setInputValue(suggestion);
+    setSuggestions([]); // Clear suggestions
+    setIsOpen(false); // Close the dropdown when a suggestion is clicked
+  };
 ```
