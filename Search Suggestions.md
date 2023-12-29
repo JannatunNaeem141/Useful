@@ -40,4 +40,19 @@
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen]);
+
+  // Sample list of predefined suggestions (replace this with your own data source)
+  const predefinedSuggestions = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Date',
+    'Fig',
+    'Grapes',
+    'Kiwi',
+    'Lemon',
+    'Mango',
+    'Orange',
+  ];
+
 ```
