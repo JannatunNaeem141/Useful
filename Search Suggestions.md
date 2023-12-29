@@ -82,3 +82,33 @@
     setIsOpen(false); // Close the dropdown when a suggestion is clicked
   };
 ```
+
+## Return
+```jsx
+  return (
+    <div className="autocomplete">
+      <div ref={inputRef}>
+        <input
+          type="text"
+          placeholder="Type something..."
+          value={inputValue}
+          onChange={handleInputChange}
+          onFocus={() => {
+            // Show all suggestions when the input is focused
+            setSuggestions(predefinedSuggestions);
+            setIsOpen(true);
+          }}
+        />
+      </div>
+      {isOpen && suggestions.length > 0 && (
+        <ul className="suggestions" ref={suggestionsRef}>
+          {suggestions.map((suggestion, index) => (
+            <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
+              {suggestion}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+```
