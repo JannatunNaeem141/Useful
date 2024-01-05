@@ -41,3 +41,35 @@ This will show when user will come first time in the website or reload the home 
       </div>
   </div>
 ```
+
+## In CSS
+```jsx
+  .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+      .modal-content {
+          right: -35%;
+      }
+  }
+```
