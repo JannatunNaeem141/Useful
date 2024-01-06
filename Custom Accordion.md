@@ -51,3 +51,46 @@ This is a custom accordion for frequently asked questions.
     }
   ];
 ```
+
+## In Return:
+```jsx
+  <div className="lg:w-full md:w-1/2 w-full">
+    {questions.map((q, index) => (
+      <div key={index} className="my-2 bg-[#F6FAFF] rounded-lg">
+        <div className='px-3 pt-1' >
+          <button className={`w-full text-left font-medium focus:outline-none flex items-center justify-between text-[#777B84] pb-1 ${activeIndex === index && 'text-[#0082C4]  border-b border-[#E4F0FF]'}`}
+            onClick={() => handleClick(index)}
+          >
+            <span>{q.question}</span>
+            {activeIndex === index ? (
+              <HiMinus size={20} className='font-semibold text-[#0082C4]' />
+            ) : (
+              <HiPlus size={20} className='font-semibold text-[#0082C4]'  />
+            )}
+          </button>
+        </div>
+        <div className={`accordion-answer px-3 pb-1 text-[#777B84] ${
+            activeIndex === index && 'accordion-answer-open'
+          }`}
+        >
+          {q.answer}
+        </div>
+      </div>
+    ))}
+  </div>
+```
+
+## CSS
+```jsx
+.accordion-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.1s ease-out;
+}
+
+
+.accordion-answer-open {
+  max-height: 500px;
+  transition: max-height 0.3s ease-in;
+}
+```
