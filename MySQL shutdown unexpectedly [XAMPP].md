@@ -11,7 +11,7 @@ Sometimes XAMPP-MySQL shows this type of Symptom below. I am showing some easy w
   6:40:45 PM  [mysql]  entire log window on the forumsSolution:<br />
 </code>
 
-## Easy way
+## Easy way to solve
 1. Open shell from Xampp Control Panel and run:
 ```jsx
   mysqld --console --skip-grant-tables --skip-external-locking
@@ -21,3 +21,10 @@ Sometimes XAMPP-MySQL shows this type of Symptom below. I am showing some easy w
   mysqlcheck -r --databases mysql --use-frm
 ```
 3. Now close both shells and restart the xampp.
+
+## Another way to solve
+1. Go to the Directory of `C:\xampp\mysql`
+2. Make a zip file of the `data` folder
+3. Go to `backup` folder and copy all the file without `ibdata1` and `ibtmp1` and then paste in the `data` folder.
+4. Fully exit the `xampp` application from the PC.
+5. Run the application again.
