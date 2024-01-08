@@ -10,3 +10,14 @@ Sometimes XAMPP-MySQL shows this type of Symptom below. I am showing some easy w
   6:40:45 PM  [mysql]  If you need more help, copy and post this<br />
   6:40:45 PM  [mysql]  entire log window on the forumsSolution:<br />
 </code>
+
+## Easy way
+1. Open shell from Xampp Control Panel and run:
+```jsx
+  mysqld --console --skip-grant-tables --skip-external-locking
+```
+2. Then again open an other shell and run:
+```jsx
+  mysqlcheck -r --databases mysql --use-frm
+```
+3. Now close both shells and restart the xampp.
