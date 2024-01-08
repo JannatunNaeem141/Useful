@@ -23,8 +23,8 @@ Sometimes XAMPP-MySQL shows this type of Symptom below. I am showing some easy w
 3. Now close both shells and restart the xampp.
 
 ## Another way to solve
-1. Go to the Directory of `C:\xampp\mysql`
-2. Make a zip file of the `data` folder
+1. Go to the Directory of `C:\xampp\mysql`.
+2. Make a zip file of the `data` folder.
 3. Go to `backup` folder and copy all the file without `ibdata1` and `ibtmp1` and then paste in the `data` folder.
-4. Fully exit the `xampp` application from the PC.
+4. Fully exit the `xampp` application.
 5. Run the application again.
