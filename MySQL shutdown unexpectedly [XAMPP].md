@@ -20,7 +20,7 @@ Sometimes XAMPP-MySQL shows this type of Symptom below. I am showing some easy w
 ```jsx
   mysqlcheck -r --databases mysql --use-frm
 ```
-3. Now close both shells and restart the xampp.
+3. Now close both shells and restart the xampp and now check the issue.
 
 ## Another way to solve
 1. Go to the Directory of `C:\xampp\mysql`.
