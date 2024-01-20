@@ -4,7 +4,7 @@ The client-side runs on “http://localhost:3000”. And server side runs on “
 
 But the problem is, when anybody browses this api-link (“http://localhost:5000/blogs”), they can access the JSON format of my blog data. It is not a professional work as there is no security of my data. That should be solved.
 
-And the solution idea is, If I fixed the api route for a specific domain, that can be a solution. There can be two verity One is for one domain and another is for multiple domains.
+And the solution idea is, If I fixed the api route for a specific domain, that could be a solution. There can be two verity One is for one domain and another is for multiple domains.
 
 ## Technologies:
 - ReactJS/NextJS
