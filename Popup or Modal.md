@@ -1,5 +1,5 @@
 # Popup or Modal
-This will show when user will come first time in the website or reload the home page. Lets see how we can make this.
+This will show when user will come first time in the website or reload the home page. Lets see how we can make this...
 
 ## Technologies
 - ReactJS/NextJS
