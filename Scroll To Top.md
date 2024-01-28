@@ -1,5 +1,5 @@
 # Scroll To Top
-In case of long size webpage there is an issue we face that when we scroll down and then waht to back at top we had to scroll back to top. For that we have a solution. We can have a Sroll to Top button that will take us to the top of the website. This is how we can make this with a simple function. We can style any way we want.
+In case of long size webpage there is an issue we face that when we scroll down and then waht to back at top we had to scroll back to top. For that we have a solution. We can have a Sroll to Top button that will take us to the top of the website. This is how we can make this with a simple function. We can style this any way we want.
 
 ## Technologies
 - ReactJS/NextJS
