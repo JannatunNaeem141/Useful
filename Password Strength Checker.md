@@ -8,7 +8,7 @@ Sometimes we need to validate the user password and show the weak or strong indi
 
 ### HTML Code:
 ```jsx
-  <div class="dark:bg-[#16192E] border border-[#ECEFF3] dark:border-[#23283F] rounded-lg commonBoxShadow">
+  <div class="dark:bg-[#16192E] border border-[#ECEFF3] dark:border-[#23283F] rounded-lg shadow-lg">
       <div class="bg-[#fafafa] dark:bg-[#1C2037] px-4 py-2 rounded-t-lg">
           <h3 class="font-medium text-[#615E83] dark:text-[#D9DBE4]">Change Password</h3>
       </div>
@@ -48,4 +48,57 @@ Sometimes we need to validate the user password and show the weak or strong indi
           </div>
       </form>
   </div>
+```
+
+### JavaScript Code:
+```jsx
+  <script>
+    function checkPasswordStrength() {
+        const passwordInput = document.getElementById("passwordInput");
+        const weakIndicator = document.getElementById("weakIndicator");
+        const mediumIndicator = document.getElementById("mediumIndicator");
+        const strongIndicator = document.getElementById("strongIndicator");
+        const strengthText = document.getElementById("strengthText");
+
+        const conditions = [
+            /.{8,}/,
+            /[0-9]/,
+            /[a-z]/,
+            /[A-Z]/,
+            /[^0-9a-zA-Z]/ 
+        ];
+
+        let fulfilledConditions = 0;
+
+        conditions.forEach(condition => {
+            if (condition.test(passwordInput.value)) {
+                fulfilledConditions++;
+            }
+        });
+
+        const strengthPercentage = (fulfilledConditions / conditions.length) * 100;
+
+        if (strengthPercentage === 0) {
+            weakIndicator.style.display = "none";
+            mediumIndicator.style.display = "none";
+            strongIndicator.style.display = "none";
+            strengthText.textContent = "";
+        } else if (strengthPercentage <= 50) {
+            weakIndicator.style.display = "block";
+            mediumIndicator.style.display = "none";
+            strongIndicator.style.display = "none";
+            strengthText.textContent = "Weak";
+        } else if (strengthPercentage > 50 && strengthPercentage < 100) {
+            weakIndicator.style.display = "none";
+            mediumIndicator.style.display = "block";
+            strongIndicator.style.display = "none";
+            strengthText.textContent = "Medium";
+        } else {
+            weakIndicator.style.display = "none";
+            mediumIndicator.style.display = "none";
+            strongIndicator.style.display = "block";
+            strengthText.textContent = "Strong";
+        }
+    }
+</script>
 ```
