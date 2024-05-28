@@ -10,7 +10,7 @@ This is a custom pagination system with common component features. This can be s
 ```jsx
   'use client';
   
-  import Pagination2 from '@/components/Pagination2';
+  import Pagination2 from '@/components/Pagination';
   import { useState } from 'react';
   
   const Index = () => {
@@ -36,7 +36,7 @@ This is a custom pagination system with common component features. This can be s
             </li>
           ))}
         </ul>
-        <Pagination2 currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       </div>
     );
   };
