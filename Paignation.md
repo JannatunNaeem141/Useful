@@ -1,5 +1,10 @@
 # Custom Pagenation
+This is a custom pagination system with common component features. This can be styled any way with TailwindCSS. 
 
+## Technologies
+- NextJS/ReactJS
+- TypeScript
+- TailwindCSS
 
 ## Index.tsx: 
 ```jsx
