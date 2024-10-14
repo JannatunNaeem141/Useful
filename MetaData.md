@@ -31,8 +31,8 @@ For website SEO purpose, we have to use the meta data. Here providing a standard
 ### In JSX (Ex: NextJS app router) :
 ```jsx
 export const metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: '',
+  description: '',
   keywords: [],
   authors: [{ name: '' }],
   icons: {
@@ -40,26 +40,26 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    url: '',
+    title: '',
+    description: '',
+    siteName: '',
     images: [
       {
         url: '',
-        alt: siteConfig.name,
+        alt: '',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: '',
+    description: '',
     images: [],
   },
   other: {
-    'whatsapp:label': siteConfig.name,
-    'whatsapp:text': siteConfig.description,
+    'whatsapp:label': '',
+    'whatsapp:text': '',
     google: ['translate', 'sitelinkssearchbox'],
   },
   robots: {
