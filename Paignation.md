@@ -1,6 +1,7 @@
 # Custom Pagenation
 This is a custom pagination system with common component features. This can be styled any way with TailwindCSS. 
 
+## 1. With NextJS/ReactJS
 ## Technologies
 - NextJS/ReactJS
 - TypeScript
@@ -102,4 +103,144 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: propsType) => {
   
   export default Pagination;
 
+```
+
+
+# 2. With vanilla JavaScript
+## Technologies
+- HTML
+- TailwindCSS
+- JavaScript
+
+## index.html: 
+```jsx
+  <div
+    id="card-container"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4"
+  >
+    <!-- Cards will be dynamically inserted here -->
+  </div>
+
+  <div class="flex justify-center space-x-2 mt-4">
+    <button
+      id="first-btn"
+      class="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+    >
+      <<
+    </button>
+    <button
+      id="prev-btn"
+      class="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+    >
+      <
+    </button>
+    <div id="page-buttons" class="flex space-x-1"></div>
+    <button
+      id="next-btn"
+      class="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+    >
+      >
+    </button>
+    <button
+      id="last-btn"
+      class="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+    >
+      >>
+    </button>
+  </div>
+```
+## script.js:
+```jsx
+  const cards = [
+    { title: "Card 1", content: "This is card 1 content." },
+    { title: "Card 2", content: "This is card 2 content." },
+    { title: "Card 3", content: "This is card 3 content." },
+    { title: "Card 4", content: "This is card 4 content." },
+    { title: "Card 5", content: "This is card 5 content." },
+    { title: "Card 6", content: "This is card 6 content." },
+    { title: "Card 7", content: "This is card 7 content." },
+    { title: "Card 8", content: "This is card 8 content." },
+    { title: "Card 9", content: "This is card 9 content." },
+    { title: "Card 10", content: "This is card 10 content." },
+    { title: "Card 11", content: "This is card 11 content." },
+    { title: "Card 12", content: "This is card 12 content." },
+    { title: "Card 12", content: "This is card 13 content." },
+    { title: "Card 12", content: "This is card 14 content." },
+  ];
+  
+  const cardsPerPage = 4;
+  let currentPage = 1;
+  
+  function renderCards(page) {
+    const startIndex = (page - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    const cardsToShow = cards.slice(startIndex, endIndex);
+  
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = cardsToShow.map(
+        (card) => `
+            <div class="p-4 bg-white rounded-lg shadow">
+                <h3 class="text-lg font-semibold">${card.title}</h3>
+                <p class="text-gray-600">${card.content}</p>
+            </div>
+        `
+      ).join("");
+    renderPagination();
+  }
+  
+  function renderPagination() {
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+    const pageButtonsContainer = document.getElementById("page-buttons");
+    pageButtonsContainer.innerHTML = "";
+  
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.className = `px-3 py-1 ${
+        currentPage === i
+          ? "bg-blue-500 text-white"
+          : "bg-gray-300 text-gray-800"
+      } rounded hover:bg-gray-400`;
+      pageButton.addEventListener("click", () => {
+        currentPage = i;
+        renderCards(currentPage);
+      });
+      pageButtonsContainer.appendChild(pageButton);
+    }
+  
+    document.getElementById("first-btn").disabled = currentPage === 1;
+    document.getElementById("prev-btn").disabled = currentPage === 1;
+    document.getElementById("next-btn").disabled =
+      currentPage === totalPages;
+    document.getElementById("last-btn").disabled =
+      currentPage === totalPages;
+  }
+  
+  document.getElementById("first-btn").addEventListener("click", () => {
+    currentPage = 1;
+    renderCards(currentPage);
+  });
+  
+  document.getElementById("prev-btn").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderCards(currentPage);
+    }
+  });
+  
+  document.getElementById("next-btn").addEventListener("click", () => {
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderCards(currentPage);
+    }
+  });
+  
+  document.getElementById("last-btn").addEventListener("click", () => {
+    currentPage = Math.ceil(cards.length / cardsPerPage);
+    renderCards(currentPage);
+  });
+  
+  // Initial render
+  renderCards(currentPage);
 ```
